@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="UpdateAll.js" />
     <Content Include="UpdateTechnician.js" />
   </ItemGroup>
   <ItemGroup>
