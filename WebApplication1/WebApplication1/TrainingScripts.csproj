@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="UpdateAll.js" />
+    <Content Include="UpdateAll2.js" />
     <Content Include="UpdateTechnician.js" />
   </ItemGroup>
   <ItemGroup>

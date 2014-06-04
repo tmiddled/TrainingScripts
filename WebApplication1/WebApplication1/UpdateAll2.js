@@ -12,10 +12,10 @@
 
     var existingWorkOrderData = [];
 
-    function changeTechnician(c) {
-        c = c.toLowerCase();
-        c = c.replace(" ", ".");
-        return c;
+    String.prototype.changeTechnician = function () {
+        var name = this;
+        name.toLowerCase().replace(" ", ".");
+        return name;
     }
 
 
@@ -27,14 +27,17 @@
                 existingWorkOrderData.push({
                     formid: result.data[a].instanceName,
                     revisionid: result.data[a].revisionId,
-                    currentprimaryrep: result.data[a].primaryRep,
+                    currentprimaryrep: result.data[a].primaryRep
                 });
             }
             var postData = {};
             for (var b = 0; b < numOfForms; b++) {
                 var lowerCaseRep = existingWorkOrderData[b].currentprimaryrep;
-                lowerCaseRep = changeTechnician(lowerCaseRep);
-                postData.PrimaryRep = lowerCaseRep;
+                var lowerCaseTechnician = existingWorkOrderData[b].current;
+                // var lowerCaseNames = changeTechnician(lowerCaseRep, lowerCaseTechnician);
+                lowerCaseRep.changeTechnician();
+                postData.PrimaryRep = lowerCaseNames[0];
+
                 var currentFormInstance = existingWorkOrderData[b].revisionid;
                 //Make Request to Post Data
                 var requestPost = $.ajax({
